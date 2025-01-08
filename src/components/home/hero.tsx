@@ -15,7 +15,7 @@ const HomeHero: React.FC<HomeHeroProps> = (props: HomeHeroProps) => {
     const session = props.session;
 
     return (
-        <main className="h-min bg-background-secondary overflow-x-hidden mx-8 border-l border-r">
+        <main className="h-min bg-background-secondary overflow-x-hidden mx-2 md:mx-8 border-l border-r">
             <section className="h-[calc(100vh-4rem)] w-full flex flex-col md:items-center md:justify-center antialiased overflow-hidden px-2">
                 <div className="flex flex-col max-w-4xl justify-center ">
                     <p className="text-sm text-[#c1cbce] font-light font-mono">Bookmarking With Extra Steps</p>
