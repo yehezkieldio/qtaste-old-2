@@ -8,7 +8,7 @@ export default async function Home() {
         <>
             <Navbar session={session} />
             <div className="p-8">
-                <h1>Hello, world!</h1>
+                <h1>Hello, Dashboard!</h1>
             </div>
         </>
     );

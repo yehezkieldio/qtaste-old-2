@@ -31,7 +31,9 @@
         --radius: 0.5rem;
     }
     .dark {
-        --background: 0 0% 3.9%;
+        /* NOTE: background is using comma-seperated syntax because `hsla` is a legacy function */
+        --background: 300, 48%, 5%, 96%;
+        --background-secondary: 227 58% 7%;
         --foreground: 0 0% 98%;
         --card: 0 0% 3.9%;
         --card-foreground: 0 0% 98%;
@@ -47,7 +49,7 @@
         --accent-foreground: 0 0% 98%;
         --destructive: 0 62.8% 30.6%;
         --destructive-foreground: 0 0% 98%;
-        --border: 0 0% 14.9%;
+        --border: 300 98% 11%;
         --input: 0 0% 14.9%;
         --ring: 0 0% 83.1%;
         --chart-1: 220 70% 50%;
@@ -62,6 +64,7 @@
         @apply border-border;
     }
     body {
+        /* @apply from-backgroundSecondary bg-gradient-to-t to-background bg-cover bg-fixed bg-no-repeat text-foreground; */
         @apply bg-background text-foreground;
     }
 }
