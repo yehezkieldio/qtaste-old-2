@@ -44,7 +44,7 @@ const HomeNavbar: React.FC<HomeNavbarProps> = (props: HomeNavbarProps) => {
                         <button
                             onClick={async () => {
                                 "use server";
-                                await signIn("discord", { redirectTo: "/dashboard" });
+                                await signIn("discord", { redirectTo: "/library" });
                             }}
                         >
                             <Icons.login className="w-6 h-6 text-gray-400 hover:text-white transition-colors duration-200" />

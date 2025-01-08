@@ -50,7 +50,7 @@ const HomeHero: React.FC<HomeHeroProps> = (props: HomeHeroProps) => {
                                 )}
                                 onClick={async () => {
                                     "use server";
-                                    await signIn("discord", { redirectTo: "/dashboard" });
+                                    await signIn("discord", { redirectTo: "/library" });
                                 }}
                             >
                                 <Icons.discord className="w-6 h-6" />
