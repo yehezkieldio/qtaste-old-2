@@ -1,0 +1,62 @@
+diff --git a/lib/pg.d.ts b/lib/pg.d.ts
+index 02c47ed10ac652994b1b1323e4c8fd716d93240e..ce1df7c770230c5295428ecf0c6cfc89469dc11a 100644
+--- a/lib/pg.d.ts
++++ b/lib/pg.d.ts
+@@ -8,7 +8,7 @@ type DefaultPostgresColumn<T extends {
+     dataType: "string" | "number" | "boolean" | "date";
+     notNull: boolean;
+     isPrimaryKey?: boolean;
+-    columnType: "PgVarchar" | "PgText" | "PgBoolean" | "PgTimestamp" | "PgInteger" | "PgUUID";
++    columnType: "PgVarchar" | "PgText" | "PgBoolean" | "PgTimestamp" | "PgInteger" | "PgUUID" | "PgCustomColumn"
+ }> = PgColumn<{
+     name: string;
+     isAutoincrement: boolean;
+@@ -17,7 +17,7 @@ type DefaultPostgresColumn<T extends {
+     generated: GeneratedColumnConfig<T["data"]> | undefined;
+     columnType: T["columnType"];
+     data: T["data"];
+-    driverParam: string | number | boolean;
++    driverParam: string | number | boolean | Buffer<ArrayBufferLike>;
+     notNull: T["notNull"];
+     hasDefault: boolean;
+     enumValues: any;
+@@ -28,11 +28,11 @@ export type DefaultPostgresUsersTable = PgTableWithColumns<{
+     name: string;
+     columns: {
+         id: DefaultPostgresColumn<{
+-            columnType: "PgVarchar" | "PgText" | "PgUUID";
++            columnType: "PgVarchar" | "PgText" | "PgUUID" | "PgCustomColumn";
+             isPrimaryKey: true;
+             data: string;
+             notNull: true;
+-            dataType: "string";
++            dataType: "custom" | "string";
+         }>;
+         name: DefaultPostgresColumn<{
+             columnType: "PgVarchar" | "PgText";
+@@ -66,10 +66,10 @@ export type DefaultPostgresAccountsTable = PgTableWithColumns<{
+     name: string;
+     columns: {
+         userId: DefaultPostgresColumn<{
+-            columnType: "PgVarchar" | "PgText" | "PgUUID";
++            columnType: "PgVarchar" | "PgText" | "PgUUID" | "PgCustomColumn";
+             data: string;
+             notNull: true;
+-            dataType: "string";
++            dataType: "custom" | "string";
+         }>;
+         type: DefaultPostgresColumn<{
+             columnType: "PgVarchar" | "PgText";
+@@ -146,10 +146,10 @@ export type DefaultPostgresSessionsTable = PgTableWithColumns<{
+             dataType: "string";
+         }>;
+         userId: DefaultPostgresColumn<{
+-            columnType: "PgVarchar" | "PgText" | "PgUUID";
++            columnType: "PgVarchar" | "PgText" | "PgUUID" | "PgCustomColumn";
+             data: string;
+             notNull: true;
+-            dataType: "string";
++            dataType: "custom" | "string";
+         }>;
+         expires: DefaultPostgresColumn<{
+             dataType: "date";
