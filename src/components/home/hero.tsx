@@ -34,7 +34,7 @@ const HomeHero: React.FC<HomeHeroProps> = (props: HomeHeroProps) => {
                                     buttonVariants({
                                         variant: "outline"
                                     }),
-                                    "px-4"
+                                    "px-6"
                                 )}
                             >
                                 <Icons.user className="w-6 h-6" />
