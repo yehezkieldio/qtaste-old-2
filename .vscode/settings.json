@@ -12,8 +12,7 @@
         }
     ],
     "files.exclude": {
-        "**/dist": true,
-        "**/node_modules": true
+        "**/dist": true
     },
     "css.customData": ["./tailwind.json"]
 }
