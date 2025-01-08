@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
     return (
         <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable} dark`}>
-            <body>
+            <body className="bg-background">
                 <TRPCReactProvider>{children}</TRPCReactProvider>
             </body>
         </html>
