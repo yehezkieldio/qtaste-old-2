@@ -3,7 +3,7 @@ import { redirect } from "next/navigation";
 
 import { auth } from "#/server/auth";
 
-export default async function LibraryLayout({ children }: { children: React.ReactNode }) {
+export default async function LibraryLayout({ children }: Readonly<{ children: React.ReactNode }>) {
     const session: Session | null = await auth();
     if (!session) redirect("/");
 
