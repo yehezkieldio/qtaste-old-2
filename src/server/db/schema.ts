@@ -201,6 +201,35 @@ export const favoriteFanfictionsRelations = relations(favoriteFanfictions, ({ on
     fanfiction: one(fanfictions, { fields: [favoriteFanfictions.fanfictionId], references: [fanfictions.id] })
 }));
 
+export const reReads = createTable(
+    "re_read",
+    {
+        userId: ulid("user_id")
+            .notNull()
+            .references(() => users.id),
+        fanfictionId: ulid("fanfiction_id")
+            .notNull()
+            .references(() => fanfictions.id),
+        reReadAt: timestamp("re_read_at", {
+            mode: "date",
+            withTimezone: true
+        }).default(sql`CURRENT_TIMESTAMP`),
+        lastChapterRead: integer("last_chapter_read"),
+        rating: integer("rating"),
+        notes: text("notes")
+    },
+    (reRead) => ({
+        compoundKey: primaryKey({
+            columns: [reRead.userId, reRead.fanfictionId]
+        })
+    })
+);
+
+export const reReadsRelations = relations(reReads, ({ one }) => ({
+    user: one(users, { fields: [reReads.userId], references: [users.id] }),
+    fanfiction: one(fanfictions, { fields: [reReads.fanfictionId], references: [fanfictions.id] })
+}));
+
 /* -------------------------------------------------------------------------- */
 
 export const users = createTable("user", {
