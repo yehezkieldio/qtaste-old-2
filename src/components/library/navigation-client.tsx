@@ -13,9 +13,8 @@ import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "#/components/ui/s
 
 const navItems = [
     { name: "Home", href: "/" },
-    { name: "About", href: "/about" },
-    { name: "Services", href: "/services" },
-    { name: "Contact", href: "/contact" }
+    { name: "Add Bookmark", href: "/about" },
+    { name: "Browse", href: "/services" }
 ];
 
 interface NavigationClientProps {
@@ -28,16 +27,16 @@ export default function NavigationClient({ session }: NavigationClientProps) {
     return (
         <>
             <div className="hidden md:flex items-center">
-                {navItems.map((item) => (
+                {/* {navItems.map((item) => (
                     <Link
                         key={item.name}
                         href={item.href}
-                        className="ml-8 text-sm font-medium text-foreground hover:text-muted-foreground"
+                        className="ml-8 text-sm font-sans font-medium text-foreground hover:text-muted-foreground transition-colors duration-200"
                     >
                         {item.name}
                     </Link>
-                ))}
-                {session ? (
+                ))} */}
+                {/* {session ? (
                     <Button variant="outline" onClick={() => signOut()} className="ml-8">
                         Sign out
                     </Button>
@@ -45,9 +44,9 @@ export default function NavigationClient({ session }: NavigationClientProps) {
                     <Button variant="outline" onClick={() => signIn()} className="ml-8">
                         Sign in
                     </Button>
-                )}
+                )} */}
             </div>
-            <div className="md:hidden flex items-center">
+            {/* <div className="md:hidden flex items-center">
                 <Sheet open={isOpen} onOpenChange={setIsOpen}>
                     <SheetTrigger asChild>
                         <Button variant="ghost" size="icon">
@@ -57,12 +56,12 @@ export default function NavigationClient({ session }: NavigationClientProps) {
                     </SheetTrigger>
                     <SheetContent side="right">
                         <SheetTitle hidden={true}>QT</SheetTitle>
-                        <div className="flex flex-col space-y-4 mt-4">
+                        <div className="flex flex-col space-y-4 mt-8">
                             {navItems.map((item) => (
                                 <Link
                                     key={item.name}
                                     href={item.href}
-                                    className="text-sm font-medium text-foreground hover:text-muted-foreground"
+                                    className="text-sm font-medium text-foreground hover:text-muted-foreground transition-colors duration-200"
                                     onClick={() => setIsOpen(false)}
                                 >
                                     {item.name}
@@ -80,7 +79,7 @@ export default function NavigationClient({ session }: NavigationClientProps) {
                         </div>
                     </SheetContent>
                 </Sheet>
-            </div>
+            </div> */}
         </>
     );
 }
